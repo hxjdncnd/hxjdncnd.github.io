@@ -1,35 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, intial-scale=1.0" />
-    <title>Harshil's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harshil's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Hello, I'm Harshil</h1>
+    <p>Computer Science Student | Aspiring Software Developer</p>
+  </header>
 
-  <body>
-    <header>
-      <h1>Hello, I am Harshil, I also go by Hershey</h1>
-      <p>Computer Science Student | Future Software Developer</p>
-    </header>
-    <section>
+  <nav class="nav">
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#interests">Interests</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="projects" class="card">
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>Movie Recommender </strong> - Flask app using IMDb API.
+      <div class="item">
+        <div>
+          <h3>Movie Recommender</h3>
+          <p>Flask web app using IMDb API to suggest similar movies.</p>
+          <p><strong>Tech:</strong> Python, Flask, HTML/CSS, SQL</p>
           <a href="#">GitHub</a>
-        </li>
-        <li>
-          <strong>Encryption Tool</strong> - Python project.
+        </div>
+      </div>
+      <div class="item">
+        <div>
+          <h3>Encryption Tool</h3>
+          <p>Python project that encrypts and decrypts text with file storage.</p>
+          <p><strong>Tech:</strong> Python</p>
           <a href="#">GitHub</a>
-        </li>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <div class="item">
+        <div>
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p><strong>Wayne State University</strong> — Detroit, MI</p>
+          <p>Expected: May 2027 • GPA: 3.7/4.0</p>
+          <p><em>Relevant Coursework:</em> Data Structures, Algorithms, Databases, Operating Systems</p>
+        </div>
+        <span class="dates">2023 — 2027</span>
+      </div>
+    </section>
+
+    <section id="certifications" class="card">
+      <h2>Certifications</h2>
+      <ul class="bullets">
+        <li>AWS Certified Solutions Architect – Associate (Expected July 2025)</li>
+        <li>Google Data Analytics Certificate (2024)</li>
+        <li>FreeCodeCamp Responsive Web Design (2024)</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Contact Me</h2>
-      <p>Email: harshilkunjadiy@gmail.com</p>
-      <p>GitHub: <a href="https://github.com/hxjdncnd">hxjdncnd</a></p>
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="item">
+        <div>
+          <h3>Software Engineering Intern — Company Name</h3>
+          <p><strong>Tech:</strong> Python, Flask, PostgreSQL, Docker</p>
+          <ul>
+            <li>Built a REST API used by 5k+ monthly users; reduced response time by 40%.</li>
+            <li>Implemented CI/CD checks and unit tests (85% coverage) to stabilize deployments.</li>
+          </ul>
+        </div>
+        <span class="dates">Summer 2025</span>
+      </div>
+
+      <div class="item">
+        <div>
+          <h3>Teaching Assistant — Course Name</h3>
+          <p><strong>Tech:</strong> Java, Git</p>
+          <ul>
+            <li>Mentored 30+ students on data structures and debugging techniques.</li>
+          </ul>
+        </div>
+        <span class="dates">2024 — 2025</span>
+      </div>
     </section>
-  </body>
+
+    <section id="interests" class="card">
+      <h2>Interests</h2>
+      <p>Distributed systems, recommender systems, UI/UX design, running, DJing, photography.</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: your.email@gmail.com</p>
+      <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/yourname">linkedin.com/in/yourname</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Harshil. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // auto-updates footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
