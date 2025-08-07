@@ -1,0 +1,13 @@
+body{
+ font-family: sans-serif;
+ margin: 2rem;
+ background-color: #f9f9f9;
+ color: #333;
+
+}
+header {
+    text-align: center;
+}
+a{
+    color: #007acc;
+}
