@@ -79,6 +79,11 @@ main {
   padding: 14px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.item.single {
+  grid-template-columns: 1fr;
+}
+
 .item:first-of-type {
   border-top: 0;
 }
