@@ -74,7 +74,7 @@ main {
 
 .item {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   gap: 12px;
   padding: 14px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
