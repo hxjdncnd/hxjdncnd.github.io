@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Harshil Kunjadiya</title>
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
   <header>
@@ -12,19 +12,45 @@
   </header>
 
   <main>
-    <section class="card">
-      <h2>Movie Recommendation Website</h2>
-      <p>Flask app using IMDb/TMDb APIs with filters for genre and length.</p>
-    </section>
+    <section id="projects" class="card">
+      <h2>Projects</h2>
 
-    <section class="card">
-      <h2>Encryption Tool</h2>
-      <p>Python CLI for encrypting/decrypting text with file storage.</p>
+      <div class="item">
+        <div>
+          <h3>Movie Recommendation Website</h3>
+          <p>Interactive platform using real-time IMDb/TMDb data with filters for length, genre, and rating.</p>
+          <p><strong>Tech:</strong> Python, Flask, HTML, CSS, SQL</p>
+          <a href="#" aria-label="GitHub repository for Movie Recommendation Website">GitHub</a>
+          <p></p>
+          <a href="https://www.linkedin.com/posts/harshil-kunjadiya-387302269_i-am-excited-to-share-that-over-the-last-activity-7281357471988793344-UiEu?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEG4A5cBa8njWCBhl0tI-oJADIYazaHw9f4" target="_blank" rel="noopener">LinkedIn Post</a>
+        </div>
+        <span class="dates">Fall 2024</span>
+      </div>
+
+      <div class="item">
+        <div>
+          <h3>File Encryption & Decryption System</h3>
+          <p>Command-line tool to encrypt/decrypt text files for secure local storage.</p>
+          <p><strong>Tech:</strong> Python</p>
+          <a href="#" aria-label="GitHub repository for File Encryption and Decryption System">GitHub</a>
+        </div>
+        <span class="dates">Fall 2024</span>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p><a href="index.html">Back to Home</a></p>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>© <span id="year"></span> Harshil Kunjadiya</p>
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
