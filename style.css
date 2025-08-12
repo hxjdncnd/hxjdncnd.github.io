@@ -10,7 +10,7 @@ html {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: url('images/headerimage.jpeg') no-repeat center center fixed;
+  background: url('headerimage.jpeg') no-repeat center center fixed;
   background-size: cover;
   color: white;
 }
