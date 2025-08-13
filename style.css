@@ -43,19 +43,19 @@ header, main, footer { position: relative; z-index: 1; }
 ========================= */
 /* Add class="home" on the <body> of index.html */
 /* Center the hero inside the space that's NOT covered by the fixed footer */
+/* === Perfect center hero with visible footer, no scroll === */
 body.home {
-  /* footer height = 92px (from your CSS) */
-  min-height: calc(100vh - 92px);
+  margin: 0;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-box {
+  flex: 1; /* take all space above the footer */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0;        /* <— remove the push-down */
-}
-
-/* Keep the hero simple (no absolute positioning) */
-.hero-box {
-  position: static;
-  transform: none;
   text-align: center;
   padding: 0 16px;
 }
@@ -67,6 +67,11 @@ body.home {
   line-height: 1.08;
   text-shadow: 0 6px 24px rgba(0,0,0,0.35);
 }
+
+.fixed-footer {
+  flex-shrink: 0; /* stay at the bottom */
+}
+
 
 
 /* Short screens: nudge hero a bit higher */
