@@ -42,16 +42,19 @@ header, main, footer { position: relative; z-index: 1; }
    Home Page Hero
 ========================= */
 /* Add class="home" on the <body> of index.html */
+/* Center the hero inside the space that's NOT covered by the fixed footer */
 body.home {
-  height: 100vh; /* full viewport height */
+  /* footer height = 92px (from your CSS) */
+  min-height: calc(100vh - 92px);
   display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
-  padding-bottom: 92px;    /* still leave room for footer if needed */
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0;        /* <— remove the push-down */
 }
 
+/* Keep the hero simple (no absolute positioning) */
 .hero-box {
-  position: static; /* no absolute positioning */
+  position: static;
   transform: none;
   text-align: center;
   padding: 0 16px;
@@ -64,6 +67,7 @@ body.home {
   line-height: 1.08;
   text-shadow: 0 6px 24px rgba(0,0,0,0.35);
 }
+
 
 /* Short screens: nudge hero a bit higher */
 @media (max-height: 700px) {
