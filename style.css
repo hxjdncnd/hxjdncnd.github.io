@@ -130,6 +130,49 @@ a:hover {
 .footer-nav a:hover {
   text-decoration: underline;
 }
+/* --- Sticky footer layout on every page --- */
+html, body { height: 100%; }
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+/* --- Bottom navigation --- */
+footer {
+  text-align: center;
+  padding: 24px 0;
+  background: rgba(0,0,0,0.55);
+  border-top: 1px solid rgba(255,255,255,0.18);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.footer-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 9999px;       
+  border: 1px solid transparent;
+}
+
+
+.footer-nav a.active {
+  background: #fff;
+  color: #111 !important;
+  border-color: rgba(255,255,255,0.9);
+}
+
+
+
 
 
 
