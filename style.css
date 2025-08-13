@@ -255,6 +255,41 @@ footer:not(.fixed-footer) p {
   opacity: 0.85;
 }
 
+/* === Center hero exactly between top and fixed footer (no scroll) === */
+:root { --footer-h: 92px; } /* your footer's visual height */
+
+body.home {
+  margin: 0;
+  height: 100vh;          /* full viewport */
+  overflow: hidden;       /* prevent tiny scrollbars */
+}
+
+/* Make the hero fill the area that's not covered by the fixed footer */
+.hero-box {
+  height: calc(100vh - var(--footer-h));
+  display: flex;
+  align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center */
+  text-align: center;
+
+  /* neutralize earlier absolute-centering rules (if present) */
+  position: static;
+  transform: none;
+  left: auto; top: auto;
+  padding: 0 16px;
+}
+
+.hero-box h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.08;
+  text-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+/* Keep footer fixed as-is */
+.fixed-footer { position: fixed; left: 0; right: 0; bottom: 0; }
+
 
 /* =========================
    Sticky-footer spacing for subpages
