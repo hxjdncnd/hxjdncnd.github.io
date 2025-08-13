@@ -178,6 +178,68 @@ footer.fixed-footer p { margin: 0; font-size: 0.9rem; opacity: 0.85; }
   .footer-nav a { min-width: 44%; }
 }
 
+/* ===== PATCH: homepage hero centering (no HTML changes) ===== */
+/* If a page has no <main>, treat it like the landing slide and center the first <h1>. */
+body:not(:has(main)) {
+  padding-bottom: 92px; /* room for fixed footer */
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+body:not(:has(main)) h1 {
+  position: absolute;
+  left: 50%;
+  top: 60vh;                         /* same vertical feel as --hero-top */
+  transform: translate(-50%, -50%);
+  margin: 0;
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.08;
+  text-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+/* ===== PATCH: make any plain <footer> act like .fixed-footer nav ===== */
+/* If a page’s footer didn’t get the .fixed-footer/.footer-nav classes,
+   style it the same way automatically. */
+footer:not(.fixed-footer) {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 16px 0 12px;
+}
+
+/* Group the links like square buttons */
+footer:not(.fixed-footer) a {
+  display: inline-block;
+  min-width: 96px;
+  margin: 0 6px 8px;
+  text-align: center;
+  padding: 10px 14px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  background: transparent;
+  transition: transform 120ms ease, background-color 120ms ease, color 120ms ease;
+}
+
+footer:not(.fixed-footer) a:hover {
+  background: rgba(0, 207, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Optional: a subtle footer caption style if there’s a <p> */
+footer:not(.fixed-footer) p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+
 /* =========================
    Sticky-footer spacing for subpages
 ========================= */
