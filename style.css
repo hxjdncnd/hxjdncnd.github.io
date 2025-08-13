@@ -43,18 +43,20 @@ header, main, footer { position: relative; z-index: 1; }
 ========================= */
 /* Add class="home" on the <body> of index.html */
 body.home {
-  --hero-top: 60vh;           /* tweak this (e.g., 58–64vh) to sit exactly on your line */
-  padding-bottom: 92px;       /* space so fixed footer doesn't overlap */
-  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  padding-bottom: 92px;    /* still leave room for footer if needed */
 }
+
 .hero-box {
-  position: absolute;
-  left: 50%;
-  top: var(--hero-top);
-  transform: translate(-50%, -50%);
+  position: static; /* no absolute positioning */
+  transform: none;
   text-align: center;
   padding: 0 16px;
 }
+
 .hero-box h1 {
   margin: 0;
   font-weight: 800;
