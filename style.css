@@ -1,91 +1,52 @@
-
+/* =========================
+   Theme & Resets
+========================= */
 :root {
   --accent: #00cfff;
+  --text: #ffffff;
+  --overlay: rgba(0,0,0,0.45);
+  --panel: rgba(0,0,0,0.60);
+  --border: rgba(255,255,255,0.18);
+  --shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; height: 100%; }
 body {
   margin: 0;
+  min-height: 100%;
+  color: var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  background: url('https://hxdjncnd.github.io/hearderimage.jpeg') no-repeat center center fixed;
+
+  /* Background that works regardless of CSS location:
+     leading slash = domain root (https://<you>.github.io/hearderimage.jpeg) */
+  background: url('/hearderimage.jpeg') no-repeat center center fixed;
   background-size: cover;
-  color: white;
-}
-
-
-header {
-  text-align: center;
-  padding: 60px 20px 20px;
-}
-header h1 {
-  margin: 0 0 8px;
-  font-size: 2rem;
-}
-header p {
-  margin: 0;
-  opacity: 0.85;
-}
-
-
-.fixed-footer {
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  z-index: 2;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(6px);
-  border-top: 1px solid rgba(255,255,255,0.18);
-  text-align: center;
-  padding: 16px 0 12px;
-}
-
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.footer-nav a {
-  color: var(--accent);
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 9999px;
-  border: 1px solid transparent;
-}
-
-.footer-nav a:hover {
-  text-decoration: underline;
-}
-
-
-.footer-nav a.active {
-  background: #fff;
-  color: #111 !important;
-  border-color: rgba(255,255,255,0.9);
-}
-
-
-.fixed-footer p {
-  font-size: 0.85rem;
-  opacity: 0.8;
-  margin: 0;
-}
-
-
-.home {
-  --hero-top: 60vh; 
-  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   position: relative;
-  min-height: 100vh;
-  padding-bottom: 76px; 
 }
 
+/* Overlay for readability on all pages */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+header, main, footer { position: relative; z-index: 1; }
+
+/* =========================
+   Home Page Hero
+========================= */
+/* Add class="home" on the <body> of index.html */
+body.home {
+  --hero-top: 60vh;           /* tweak this (e.g., 58–64vh) to sit exactly on your line */
+  padding-bottom: 92px;       /* space so fixed footer doesn't overlap */
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
 .hero-box {
   position: absolute;
   left: 50%;
@@ -94,17 +55,73 @@ header p {
   text-align: center;
   padding: 0 16px;
 }
-
 .hero-box h1 {
   margin: 0;
   font-weight: 800;
   font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.1;
-  color: #fff;
+  line-height: 1.08;
   text-shadow: 0 6px 24px rgba(0,0,0,0.35);
 }
 
-
+/* Short screens: nudge hero a bit higher */
 @media (max-height: 700px) {
-  .home { --hero-top: 54vh; }
+  body.home { --hero-top: 54vh; }
 }
+
+/* =========================
+   Header (optional on subpages)
+========================= */
+header {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+header h1 { margin: 0 0 8px; font-size: 2rem; }
+header p  { margin: 0; opacity: 0.9; }
+
+/* =========================
+   Main Layout & Cards
+========================= */
+main {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+.card h2 { margin-top: 0; }
+
+/* Rows with optional right-side dates */
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto; /* content + dates */
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.item:first-of-type { border-top: 0; }
+.item h3 { margin: 0 0 6px; }
+.item p  { margin: 4px 0; opacity: 0.9; }
+.item ul { margin: 8px 0 0 18px; }
+.item.single { grid-template-columns: 1fr; } /* when there’s no .dates */
+.dates { opacity: 0.8; white-space: nowrap; }
+
+/* Lists & links */
+.bullets { margin: 0; padding-left: 18px; }
+.bullets li { margin: 6px 0; }
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+/* =========================
+   Bottom Navigation (square buttons)
+========================= */
+/* Use the same footer on all pages.
+   On non-home pages, add class="active" to the current link. */
+.fixed-footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
